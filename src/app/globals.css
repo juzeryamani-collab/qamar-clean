@@ -3,52 +3,36 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
     @apply bg-brand-bg text-brand-text font-lato antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-oswald;
-  }
+  h1, h2, h3, h4, h5, h6 { @apply font-oswald; }
 
-  /* Gold scrollbar accent */
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-  ::-webkit-scrollbar-track {
-    @apply bg-brand-bg;
-  }
-  ::-webkit-scrollbar-thumb {
-    @apply bg-brand-gold-dim rounded-full;
-  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-brand-bg; }
+  ::-webkit-scrollbar-thumb { @apply bg-brand-gold-dim rounded-full; }
 }
 
 @layer components {
   .btn-primary {
     @apply inline-flex items-center gap-2 bg-brand-gold text-brand-bg px-8 py-4 font-oswald uppercase tracking-widest text-sm font-semibold hover:bg-brand-gold-hover transition-colors duration-200;
   }
-
   .btn-outline {
     @apply inline-flex items-center gap-2 border-2 border-brand-gold text-brand-gold px-8 py-4 font-oswald uppercase tracking-widest text-sm font-semibold hover:bg-brand-gold hover:text-brand-bg transition-colors duration-200;
   }
-
   .section-tag {
     @apply inline-flex items-center gap-2 text-brand-gold font-oswald uppercase tracking-widest text-xs font-semibold mb-3;
   }
-
   .section-tag::before {
     content: '';
     @apply block w-8 h-px bg-brand-gold;
   }
-
   .section-heading {
     @apply font-oswald text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-text leading-tight;
   }
-
   .gold-divider {
     @apply w-16 h-0.5 bg-brand-gold my-6;
   }
