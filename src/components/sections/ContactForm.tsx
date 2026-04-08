@@ -15,13 +15,14 @@ export default function ContactForm() {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    const form = e.currentTarget
     setStatus('loading')
-    const data = Object.fromEntries(new FormData(e.currentTarget))
+    const data = Object.fromEntries(new FormData(form))
     try {
       const res = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
       if (!res.ok) { const b = await res.json().catch(() => ({})); throw new Error(b.error || 'Submission failed') }
       setStatus('success')
-      e.currentTarget.reset()
+      form.reset()
     } catch (err) {
       setStatus('error')
       setErrorMsg(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
