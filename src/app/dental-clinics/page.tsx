@@ -32,6 +32,30 @@ export default function DentalClinicsPage() {
         { title: 'Patient Experience Design',  description: 'Reception, consultation rooms, and operatory design focused on reducing dental anxiety and building patient trust.' },
       ]}
       compliance="We coordinate with dental equipment suppliers (Patterson, Henry Schein, Burkhart, etc.) to ensure all rough-in dimensions, utility specs, and clearances meet manufacturer requirements. ADA compliant throughout."
+      testimonialsHeading="What Houston Dentists Are Saying"
+      testimonials={[
+        {
+          quote: "Zain at Qamar Construction understood dental operatory layout better than any contractor I'd spoken to. The plumbing rough-ins, air lines, and cabinetry blocking were all perfectly placed. My Patterson rep was impressed — and they've seen a lot of builds.",
+          name: 'Dr. Lena Tran',
+          title: 'Owner & General Dentist',
+          practice: 'Tran Family Dental — Sugar Land, TX',
+          initials: 'LT',
+        },
+        {
+          quote: "We opened our second location in The Woodlands and Qamar handled the full build-out. Eight operatories, a central sterile room, digital imaging suite — all done on time and on budget. Zain kept us updated every step of the way.",
+          name: 'Dr. Ahmed Farooq',
+          title: 'Owner',
+          practice: 'Farooq Orthodontics — The Woodlands, TX',
+          initials: 'AF',
+        },
+        {
+          quote: "As a first-time practice owner, I was nervous about the build process. Zain walked me through everything — from the lease review to the final punch list. Qamar Construction made opening my own dental office feel manageable.",
+          name: 'Dr. Samantha Cole',
+          title: 'Owner & Pediatric Dentist',
+          practice: 'Bright Smiles Pediatric Dentistry — Pearland, TX',
+          initials: 'SC',
+        },
+      ]}
     />
   )
 }

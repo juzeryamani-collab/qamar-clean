@@ -39,6 +39,30 @@ export default function UrgentCarePage() {
         { title: 'Signage & Exterior',         description: 'High-visibility exterior signage, canopy, and drive-up design to attract walk-in traffic from day one.' },
       ]}
       compliance="Urgent care construction in Texas requires coordination with the Texas DSHS Health Facility Licensing Program, local fire marshals, and ADA accessibility compliance. We manage the entire regulatory process."
+      testimonialsHeading="What Urgent Care Operators Are Saying"
+      testimonials={[
+        {
+          quote: "We were converting an old retail space into a 10-room urgent care center and needed someone who could move fast. Zain from Qamar Construction had the permit drawings ready in two weeks and we were open in under four months. That's unheard of in this market.",
+          name: 'Marcus Williams',
+          title: 'Regional Director of Operations',
+          practice: 'CareNow Urgent Care — Houston Metro',
+          initials: 'MW',
+        },
+        {
+          quote: "Qamar Construction handled our second urgent care location in Cypress from concept to certificate of occupancy. Zain was on-site regularly and kept the project on track. The x-ray room shielding and lab rough-ins were done perfectly the first time.",
+          name: 'Dr. Fatima Al-Hassan',
+          title: 'Physician Owner',
+          practice: 'Quick Med Urgent Care — Cypress, TX',
+          initials: 'FA',
+        },
+        {
+          quote: "I brought Zain in to evaluate a strip center space and within a week he had a full scope, timeline, and budget ready. Qamar Construction's knowledge of urgent care-specific requirements — DSHS, fire marshal, ADA — saved us months of back-and-forth.",
+          name: 'Derek Nguyen',
+          title: 'Practice Administrator',
+          practice: 'NextCare Urgent Care — Missouri City, TX',
+          initials: 'DN',
+        },
+      ]}
     />
   )
 }

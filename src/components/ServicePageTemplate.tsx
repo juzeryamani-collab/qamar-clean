@@ -3,10 +3,12 @@ import { ArrowRight, type LucideIcon } from 'lucide-react'
 import ProcessSteps from '@/components/sections/ProcessSteps'
 import LocationsGrid from '@/components/sections/LocationsGrid'
 import CtaBanner from '@/components/sections/CtaBanner'
+import Testimonials from '@/components/sections/Testimonials'
 
 interface Scope   { icon: LucideIcon; title: string; description: string }
 interface Feature { title: string; description: string }
 interface Step    { number: string; title: string; description: string }
+interface Testimonial { quote: string; name: string; title: string; practice: string; initials: string }
 
 interface Props {
   tag: string
@@ -18,10 +20,12 @@ interface Props {
   features: Feature[]
   steps?: Step[]
   compliance?: string
+  testimonials?: Testimonial[]
+  testimonialsHeading?: string
 }
 
 export default function ServicePageTemplate({
-  tag, heroTitle, heroSub, heroImage, scopeHeading, scopeItems, features, steps, compliance
+  tag, heroTitle, heroSub, heroImage, scopeHeading, scopeItems, features, steps, compliance, testimonials, testimonialsHeading
 }: Props) {
   return (
     <>
@@ -131,6 +135,10 @@ export default function ServicePageTemplate({
           </div>
         </div>
       </section>
+
+      {testimonials && testimonials.length > 0 && (
+        <Testimonials testimonials={testimonials} heading={testimonialsHeading} />
+      )}
 
       <LocationsGrid />
       <CtaBanner />

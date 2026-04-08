@@ -32,6 +32,30 @@ export default function MedicalClinicsPage() {
         { title: 'Equipment Coordination',     description: 'We work directly with medical equipment vendors to ensure utilities, blocking, and clearances are exactly right.' },
       ]}
       compliance="We build to Texas DSHS standards, local Houston building codes, NFPA 101 Life Safety Code, and coordinate with equipment vendors on utility rough-ins. Every project is delivered permit-ready."
+      testimonialsHeading="What Houston Physicians Are Saying"
+      testimonials={[
+        {
+          quote: "Zain and the Qamar Construction team built out our 4,200 sq ft primary care clinic in Katy from a bare shell. They handled everything — permits, MEP, equipment coordination. We opened two weeks ahead of schedule. Couldn't ask for more.",
+          name: 'Dr. Khalid Mansour',
+          title: 'Owner & Physician',
+          practice: 'Mansour Family Medicine — Katy, TX',
+          initials: 'KM',
+        },
+        {
+          quote: "I've worked with other contractors in the Houston market and nobody comes close to Qamar's level of detail. Zain personally walked me through every stage of our specialty clinic build. The ADA compliance and patient flow were exactly what we needed.",
+          name: 'Dr. Priya Nair',
+          title: 'Medical Director',
+          practice: 'Houston Dermatology & Skin Center',
+          initials: 'PN',
+        },
+        {
+          quote: "Our multi-physician practice needed a full gut renovation without shutting down. Zain phased the construction perfectly — we kept seeing patients the entire time. Qamar Construction exceeded every expectation.",
+          name: 'Dr. Robert Castillo',
+          title: 'Managing Partner',
+          practice: 'Castillo & Associates Internal Medicine',
+          initials: 'RC',
+        },
+      ]}
     />
   )
 }
