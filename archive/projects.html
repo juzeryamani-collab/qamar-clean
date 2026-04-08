@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construction Projects Portfolio | Qamar Construction Houston TX</title>
+  <meta name="description" content="Browse 100+ completed construction projects by Qamar Construction across Houston, TX. Healthcare, dental, medical, commercial & residential case studies with photos and results.">
+  <link rel="canonical" href="https://qamarconstruction.com/projects.html">
+  <meta property="og:title" content="Our Projects | Qamar Construction Houston">
+  <meta property="og:description" content="100+ completed projects across Houston. View healthcare, dental, commercial and residential construction portfolios.">
+  <meta property="og:url" content="https://qamarconstruction.com/projects.html">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared.css">
+  <style>
+    .projects-hero{background:linear-gradient(135deg,#071524 0%,#0D2137 60%,#1565C0 100%);padding:80px 0 60px;text-align:center;position:relative;overflow:hidden;}
+    .projects-hero::before{content:'';position:absolute;inset:0;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.04)"/><circle cx="80" cy="60" r="1.5" fill="rgba(255,255,255,0.04)"/><circle cx="50" cy="80" r="1" fill="rgba(255,255,255,0.04)"/></svg>');pointer-events:none;}
+    .projects-hero h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,54px);color:#fff;margin:0 0 16px;}
+    .projects-hero p{font-size:18px;color:rgba(255,255,255,0.75);max-width:600px;margin:0 auto 32px;}
+    .hero-stats-row{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;}
+    .hero-stat{text-align:center;}
+    .hero-stat-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:#00B4D8;}
+    .hero-stat-label{font-size:13px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:.05em;}
+
+    /* Filter bar */
+    .filter-bar{background:#fff;border-bottom:1px solid #E2E8F0;position:sticky;top:72px;z-index:100;padding:0;}
+    .filter-bar-inner{display:flex;gap:4px;padding:12px 0;overflow-x:auto;scrollbar-width:none;}
+    .filter-bar-inner::-webkit-scrollbar{display:none;}
+    .filter-btn{padding:8px 18px;border-radius:100px;border:1.5px solid #E2E8F0;background:#fff;font-size:13.5px;font-weight:600;color:#64748B;cursor:pointer;white-space:nowrap;transition:all .2s;}
+    .filter-btn:hover{border-color:#1565C0;color:#1565C0;}
+    .filter-btn.active{background:#1565C0;border-color:#1565C0;color:#fff;}
+
+    /* Projects grid */
+    .projects-section{padding:60px 0;}
+    .projects-count{font-size:14px;color:#94A3B8;margin-bottom:24px;}
+    .projects-count span{color:#1565C0;font-weight:700;}
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:28px;}
+    .project-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06);border:1px solid #F1F5F9;transition:transform .25s,box-shadow .25s;}
+    .project-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.12);}
+    .project-card[style*="display:none"]{display:none!important;}
+    .project-img{height:220px;position:relative;overflow:hidden;}
+    .project-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:64px;}
+    .project-badge{position:absolute;top:14px;left:14px;background:rgba(7,21,36,.75);backdrop-filter:blur(4px);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px;text-transform:uppercase;letter-spacing:.05em;}
+    .project-badge.healthcare{background:rgba(21,101,192,.85);}
+    .project-badge.dental{background:rgba(14,165,233,.85);}
+    .project-badge.commercial{background:rgba(234,179,8,.9);color:#1E293B;}
+    .project-badge.residential{background:rgba(34,197,94,.85);}
+    .project-city-badge{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.15);backdrop-filter:blur(4px);color:#fff;font-size:11px;padding:4px 10px;border-radius:100px;border:1px solid rgba(255,255,255,.3);}
+    .project-body{padding:22px 24px;}
+    .project-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#0F172A;margin:0 0 8px;line-height:1.3;}
+    .project-desc{font-size:14px;color:#64748B;line-height:1.6;margin:0 0 16px;}
+    .project-metrics{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:18px;}
+    .project-metric{background:#F8FAFC;border-radius:8px;padding:8px 12px;text-align:center;flex:1;min-width:80px;}
+    .project-metric-val{font-size:15px;font-weight:700;color:#1565C0;}
+    .project-metric-key{font-size:11px;color:#94A3B8;margin-top:2px;}
+    .project-link{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;color:#1565C0;text-decoration:none;transition:gap .2s;}
+    .project-link:hover{gap:10px;}
+    .project-link svg{width:14px;height:14px;}
+
+    /* Featured project */
+    .featured-project{background:linear-gradient(135deg,#071524,#0D2137);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;margin-bottom:48px;}
+    @media(max-width:768px){.featured-project{grid-template-columns:1fr;}}
+    .featured-left{padding:48px 40px;display:flex;flex-direction:column;justify-content:center;}
+    .featured-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(0,180,216,.15);color:#00B4D8;font-size:12px;font-weight:700;padding:5px 12px;border-radius:100px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;}
+    .featured-title{font-family:'Playfair Display',serif;font-size:28px;color:#fff;margin:0 0 12px;line-height:1.3;}
+    .featured-desc{font-size:15px;color:rgba(255,255,255,.7);line-height:1.7;margin:0 0 24px;}
+    .featured-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;}
+    .featured-stat{background:rgba(255,255,255,.07);border-radius:12px;padding:16px;}
+    .featured-stat-val{font-size:22px;font-weight:700;color:#00B4D8;}
+    .featured-stat-key{font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;}
+    .featured-right{background:linear-gradient(135deg,#1565C0,#0D47A1);display:flex;align-items:center;justify-content:center;font-size:100px;min-height:320px;}
+
+    /* CTA strip */
+    .cta-strip{background:linear-gradient(135deg,#1565C0,#0D47A1);border-radius:16px;padding:48px 40px;text-align:center;margin:60px 0 0;}
+    .cta-strip h2{font-family:'Playfair Display',serif;font-size:28px;color:#fff;margin:0 0 12px;}
+    .cta-strip p{color:rgba(255,255,255,.8);margin:0 0 28px;}
+    .cta-strip-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+    @media(max-width:600px){.projects-grid{grid-template-columns:1fr;}.hero-stats-row{gap:24px;}.featured-left{padding:32px 24px;}}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"CollectionPage",
+        "@id":"https://qamarconstruction.com/projects.html",
+        "name":"Construction Projects Portfolio | Qamar Construction",
+        "description":"100+ completed construction projects across Greater Houston including healthcare, dental, commercial and residential builds.",
+        "url":"https://qamarconstruction.com/projects.html",
+        "provider":{"@type":"LocalBusiness","name":"Qamar Construction","url":"https://qamarconstruction.com"}
+      },
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://qamarconstruction.com"},
+          {"@type":"ListItem","position":2,"name":"Our Projects","item":"https://qamarconstruction.com/projects.html"}
+        ]
+      }
+    ]
+  }
+  </script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="shortcut icon" href="favicon.svg">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <a href="tel:+18327669246" class="topbar-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>(832) 766-9246 — Free Consultations</a>
+        <a href="/cdn-cgi/l/email-protection#671d060e092716060a06150408091413151204130e08094904080a" class="topbar-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><span class="__cf_email__" data-cfemail="681209010628190905091a0b07061b1c1a1d0b1c010706460b0705">[email&#160;protected]</span></a>
+        <span class="topbar-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Houston, TX · Mon–Fri 8am–6pm</span>
+      </div>
+      <div class="topbar-right">
+        <span class="topbar-badge gold">★ BBB Accredited</span>
+        <span class="topbar-badge">Licensed & Insured</span>
+        <span class="topbar-badge">Est. 1999</span>
+        <button class="topbar-cta-pill" onclick="scrollToQuote()">Get Free Quote →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-wrapper">
+  <div class="container">
+    <nav>
+      <a href="/index.html" class="nav-logo">
+        <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <div><span class="nav-logo-name">Qamar Construction</span><span class="nav-logo-sub">Design · Build · Deliver</span></div>
+      </a>
+      <div class="nav-menu">
+        <div class="nav-item">
+          <button class="nav-link">Healthcare <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="nav-dropdown">
+            <div class="dropdown-section">
+              <span class="dropdown-section-label">Specialty Builds</span>
+              <a href="/dental-clinic-construction.html" class="dropdown-link"><div class="dropdown-link-icon" style="background:#EFF6FF;">🦷</div><div><div style="font-weight:600;font-size:13px;color:#1E293B;">Dental Clinic Construction</div><div style="font-size:11.5px;color:#94A3B8;">Turn-key · operatories · sterilization</div></div></a>
+              <a href="/medical-clinic-construction.html" class="dropdown-link"><div class="dropdown-link-icon" style="background:#F0FDFA;">🏥</div><div><div style="font-weight:600;font-size:13px;color:#1E293B;">Medical Clinic Construction</div><div style="font-size:11.5px;color:#94A3B8;">Primary care · urgent care · specialty</div></div></a>
+              <a href="/medical-facility-construction.html" class="dropdown-link"><div class="dropdown-link-icon" style="background:#FFF7ED;">🔬</div><div><div style="font-weight:600;font-size:13px;color:#1E293B;">Medical Facility Build-Outs</div></div></a>
+              <a href="/veterinary-clinic-construction.html" class="dropdown-link"><div class="dropdown-link-icon" style="background:#F5F3FF;">🐾</div><div><div style="font-weight:600;font-size:13px;color:#1E293B;">Veterinary Clinics</div></div></a>
+              <a href="/optical-vision-clinic-construction.html" class="dropdown-link"><div class="dropdown-link-icon" style="background:#FFF1F2;">👁️</div><div><div style="font-weight:600;font-size:13px;color:#1E293B;">Optical & Vision Clinics</div></div></a>
+              <a href="/mental-health-office-construction.html" class="dropdown-link"><div class="dropdown-link-icon" style="background:#F0FDF4;">🧠</div><div><div style="font-weight:600;font-size:13px;color:#1E293B;">Mental Health Offices</div></div></a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item">
+          <button class="nav-link">Commercial <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="nav-dropdown">
+            <div class="dropdown-section">
+              <span class="dropdown-section-label">Commercial Projects</span>
+              <a href="/retail-storefront-construction.html" class="dropdown-link"><div class="dropdown-link-icon" style="background:#FFFBEB;">🏪</div><div><div style="font-weight:600;font-size:13px;color:#1E293B;">Retail Storefront Construction</div></div></a>
+              <a href="/restaurant-construction.html" class="dropdown-link"><div class="dropdown-link-icon" style="background:#FFF0F0;">🍽️</div><div><div style="font-weight:600;font-size:13px;color:#1E293B;">Restaurant & Food Service</div></div></a>
+              <a href="/office-build-out-construction.html" class="dropdown-link"><div class="dropdown-link-icon" style="background:#EFF6FF;">🏢</div><div><div style="font-weight:600;font-size:13px;color:#1E293B;">Office Build-Outs & TI</div></div></a>
+              <a href="/warehouse-construction.html" class="dropdown-link"><div class="dropdown-link-icon" style="background:#F3F4F6;">🏭</div><div><div style="font-weight:600;font-size:13px;color:#1E293B;">Warehouse Construction</div></div></a>
+              <a href="/religious-facility-construction.html" class="dropdown-link"><div class="dropdown-link-icon" style="background:#F5F3FF;">⛪</div><div><div style="font-weight:600;font-size:13px;color:#1E293B;">Religious & Community Facilities</div></div></a>
+              <a href="/childcare-daycare-construction.html" class="dropdown-link"><div class="dropdown-link-icon" style="background:#ECFDF5;">👶</div><div><div style="font-weight:600;font-size:13px;color:#1E293B;">Childcare & Daycare</div></div></a>
+              <a href="/car-wash-auto-construction.html" class="dropdown-link"><div class="dropdown-link-icon" style="background:#FFF7ED;">🚗</div><div><div style="font-weight:600;font-size:13px;color:#1E293B;">Auto & Car Wash Construction</div></div></a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item">
+          <button class="nav-link">Residential <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="nav-dropdown" style="min-width:220px;">
+            <div class="dropdown-section">
+              <a href="/custom-home-construction.html" class="dropdown-link"><div class="dropdown-link-icon" style="background:#FFF7ED;">🏠</div><div><div style="font-weight:600;font-size:13px;color:#1E293B;">Custom Home Construction</div></div></a>
+              <a href="/home-remodeling.html" class="dropdown-link"><div class="dropdown-link-icon" style="background:#EFF6FF;">🔨</div><div><div style="font-weight:600;font-size:13px;color:#1E293B;">Home Remodeling</div></div></a>
+              <a href="/kitchen-bathroom-renovation.html" class="dropdown-link"><div class="dropdown-link-icon" style="background:#F0FDF4;">🍳</div><div><div style="font-weight:600;font-size:13px;color:#1E293B;">Kitchen & Bath Renovations</div></div></a>
+              <a href="/room-additions-adu.html" class="dropdown-link"><div class="dropdown-link-icon" style="background:#F5F3FF;">➕</div><div><div style="font-weight:600;font-size:13px;color:#1E293B;">Room Additions & ADUs</div></div></a>
+              <a href="/outdoor-living-construction.html" class="dropdown-link"><div class="dropdown-link-icon" style="background:#ECFDF5;">🌿</div><div><div style="font-weight:600;font-size:13px;color:#1E293B;">Outdoor Living & Garages</div></div></a>
+            </div>
+          </div>
+        </div>
+        <a href="/projects.html" class="nav-link" style="color:#1565C0;">Projects</a>
+        <a href="/service-areas.html" class="nav-link">Service Areas</a>
+        <a href="/about-us.html" class="nav-link">About</a>
+        <a href="/turn-key-design-build.html" class="nav-link">Turn-Key</a>
+      </div>
+      <div class="nav-actions">
+        <a href="tel:+18327669246" class="nav-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.5 19.79 19.79 0 0 1 1.61 2.9 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(832) 766-9246</a>
+        <a href="/request-a-quote.html" class="btn-primary">Free Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu">
+  <div class="mobile-menu-header">
+    <a href="/index.html" class="nav-logo"><div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div><div><span class="nav-logo-name">Qamar Construction</span></div></a>
+    <button class="mobile-close" onclick="document.querySelector('.mobile-menu').classList.remove('open');document.body.style.overflow=''">✕</button>
+  </div>
+  <div class="mobile-section">
+    <div class="mobile-section-title">Healthcare</div>
+    <a href="/dental-clinic-construction.html" class="mobile-link"><span class="mobile-link-icon">🦷</span> Dental Clinic Construction</a>
+    <a href="/medical-clinic-construction.html" class="mobile-link"><span class="mobile-link-icon">🏥</span> Medical Clinic Construction</a>
+    <a href="/veterinary-clinic-construction.html" class="mobile-link"><span class="mobile-link-icon">🐾</span> Veterinary Clinics</a>
+    <a href="/optical-vision-clinic-construction.html" class="mobile-link"><span class="mobile-link-icon">👁️</span> Optical & Vision Clinics</a>
+    <a href="/mental-health-office-construction.html" class="mobile-link"><span class="mobile-link-icon">🧠</span> Mental Health Offices</a>
+  </div>
+  <div class="mobile-section">
+    <div class="mobile-section-title">Commercial</div>
+    <a href="/retail-storefront-construction.html" class="mobile-link"><span class="mobile-link-icon">🏪</span> Retail Storefront</a>
+    <a href="/restaurant-construction.html" class="mobile-link"><span class="mobile-link-icon">🍽️</span> Restaurant Construction</a>
+    <a href="/office-build-out-construction.html" class="mobile-link"><span class="mobile-link-icon">🏢</span> Office Build-Outs</a>
+  </div>
+  <div class="mobile-section">
+    <div class="mobile-section-title">Company</div>
+    <a href="/projects.html" class="mobile-link" style="color:#1565C0;font-weight:700;">📁 Our Projects</a>
+    <a href="/about-us.html" class="mobile-link">👤 About Qamar</a>
+    <a href="/turn-key-design-build.html" class="mobile-link">⚙️ Turn-Key Process</a>
+    <a href="/contact.html" class="mobile-link">📞 Contact Us</a>
+    <a href="/request-a-quote.html" class="mobile-link" style="color:#1565C0;font-weight:700;">✏️ Request Free Quote</a>
+  </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div style="background:#F8FAFC;border-bottom:1px solid #E2E8F0;padding:10px 0;">
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="/index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Our Projects</span>
+    </nav>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="projects-hero">
+  <div class="container">
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(0,180,216,.15);color:#00B4D8;font-size:12px;font-weight:700;padding:6px 14px;border-radius:100px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:20px;">
+      📁 Project Portfolio
+    </div>
+    <h1>100+ Projects Delivered<br>Across Greater Houston</h1>
+    <p>From 4-operatory dental clinics to multi-physician medical facilities, commercial build-outs to custom homes — see how we've transformed spaces across 70+ Houston cities.</p>
+    <div class="hero-stats-row">
+      <div class="hero-stat"><div class="hero-stat-num">100+</div><div class="hero-stat-label">Projects Completed</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">25+</div><div class="hero-stat-label">Years in Houston</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">70+</div><div class="hero-stat-label">Cities Served</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">5★</div><div class="hero-stat-label">Google Rating</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="container">
+    <div class="filter-bar-inner">
+      <button class="filter-btn active" onclick="filterProjects('all',this)">All Projects</button>
+      <button class="filter-btn" onclick="filterProjects('dental',this)">🦷 Dental</button>
+      <button class="filter-btn" onclick="filterProjects('medical',this)">🏥 Medical</button>
+      <button class="filter-btn" onclick="filterProjects('healthcare',this)">⚕️ All Healthcare</button>
+      <button class="filter-btn" onclick="filterProjects('retail',this)">🏪 Retail</button>
+      <button class="filter-btn" onclick="filterProjects('restaurant',this)">🍽️ Restaurant</button>
+      <button class="filter-btn" onclick="filterProjects('commercial',this)">🏢 Commercial</button>
+      <button class="filter-btn" onclick="filterProjects('residential',this)">🏠 Residential</button>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURED PROJECT -->
+<section style="padding:60px 0 0;">
+  <div class="container">
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#94A3B8;margin-bottom:8px;">⭐ Featured Case Study</div>
+    <div class="featured-project">
+      <div class="featured-left">
+        <div class="featured-tag">🏥 Medical Clinic · Katy, TX</div>
+        <h2 class="featured-title">PCP For Life — 6-Exam-Room Primary Care Clinic Built Without Closing a Single Day</h2>
+        <p class="featured-desc">When PCP For Life needed to expand their existing practice into 3,800 sq ft of new clinical space, they couldn't afford patient disruption. Qamar Construction engineered a phased construction plan that kept the practice operational 100% of the time while delivering a state-of-the-art facility on budget.</p>
+        <div class="featured-stats">
+          <div class="featured-stat"><div class="featured-stat-val">3,800</div><div class="featured-stat-key">Sq Ft Delivered</div></div>
+          <div class="featured-stat"><div class="featured-stat-val">0</div><div class="featured-stat-key">Patient Days Lost</div></div>
+          <div class="featured-stat"><div class="featured-stat-val">4</div><div class="featured-stat-key">Phases Executed</div></div>
+          <div class="featured-stat"><div class="featured-stat-val">On Budget</div><div class="featured-stat-key">Final Result</div></div>
+        </div>
+        <a href="/medical-clinic-construction.html" class="btn-primary" style="width:fit-content;">View Full Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="featured-right">🏥</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS GRID -->
+<section class="projects-section">
+  <div class="container">
+    <p class="projects-count">Showing <span id="projectsCount">12</span> projects</p>
+
+    <div class="projects-grid" id="projectsGrid">
+
+      <!-- Dental 1 -->
+      <div class="project-card" data-category="dental healthcare">
+        <div class="project-img" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);">
+          <div class="project-img-placeholder">🦷</div>
+          <div class="project-badge dental">Dental</div>
+          <div class="project-city-badge">The Woodlands, TX</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Woodlands Family Dental — 8-Operatory Turn-Key Build</h3>
+          <p class="project-desc">Ground-up 4,200 sq ft dental clinic with 8 fully-equipped operatories, digital radiology suite, 3-station sterilization center, and custom millwork reception.</p>
+          <div class="project-metrics">
+            <div class="project-metric"><div class="project-metric-val">4,200</div><div class="project-metric-key">Sq Ft</div></div>
+            <div class="project-metric"><div class="project-metric-val">8</div><div class="project-metric-key">Operatories</div></div>
+            <div class="project-metric"><div class="project-metric-val">14 wks</div><div class="project-metric-key">Timeline</div></div>
+          </div>
+          <a href="/dental-clinic-construction.html" class="project-link">View Service Page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Medical 1 -->
+      <div class="project-card" data-category="medical healthcare">
+        <div class="project-img" style="background:linear-gradient(135deg,#F0FDFA,#CCFBF1);">
+          <div class="project-img-placeholder">🏥</div>
+          <div class="project-badge healthcare">Medical</div>
+          <div class="project-city-badge">Katy, TX</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">PCP For Life — 6-Exam-Room Primary Care Expansion</h3>
+          <p class="project-desc">Phased expansion of active medical practice. 3,800 sq ft of new clinical space built in 4 operational phases with zero patient disruption.</p>
+          <div class="project-metrics">
+            <div class="project-metric"><div class="project-metric-val">3,800</div><div class="project-metric-key">Sq Ft</div></div>
+            <div class="project-metric"><div class="project-metric-val">0</div><div class="project-metric-key">Days Closed</div></div>
+            <div class="project-metric"><div class="project-metric-val">4</div><div class="project-metric-key">Phases</div></div>
+          </div>
+          <a href="/medical-clinic-construction.html" class="project-link">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Dental 2 -->
+      <div class="project-card" data-category="dental healthcare">
+        <div class="project-img" style="background:linear-gradient(135deg,#F0F9FF,#BAE6FD);">
+          <div class="project-img-placeholder">🦷</div>
+          <div class="project-badge dental">Dental</div>
+          <div class="project-city-badge">Sugar Land, TX</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Sugar Land Smiles — 6-Op Startup Practice</h3>
+          <p class="project-desc">Turn-key startup dental office from raw shell space. Included full plumbing rough-in, dental cabinetry, operatory equipment hook-ups, and luxury patient lounge.</p>
+          <div class="project-metrics">
+            <div class="project-metric"><div class="project-metric-val">3,100</div><div class="project-metric-key">Sq Ft</div></div>
+            <div class="project-metric"><div class="project-metric-val">6</div><div class="project-metric-key">Operatories</div></div>
+            <div class="project-metric"><div class="project-metric-val">11 wks</div><div class="project-metric-key">Timeline</div></div>
+          </div>
+          <a href="/dental-clinic-construction.html" class="project-link">View Service Page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Retail 1 -->
+      <div class="project-card" data-category="retail commercial">
+        <div class="project-img" style="background:linear-gradient(135deg,#FFFBEB,#FEF3C7);">
+          <div class="project-img-placeholder">🏪</div>
+          <div class="project-badge commercial">Retail</div>
+          <div class="project-city-badge">Houston, TX</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Galleria-Area Boutique Retail — High-End Tenant Improvement</h3>
+          <p class="project-desc">Luxury boutique fit-out with custom built-in display shelving, feature lighting, polished concrete floors, and full ADA-compliant restroom addition.</p>
+          <div class="project-metrics">
+            <div class="project-metric"><div class="project-metric-val">2,400</div><div class="project-metric-key">Sq Ft</div></div>
+            <div class="project-metric"><div class="project-metric-val">$165/sf</div><div class="project-metric-key">Build Cost</div></div>
+            <div class="project-metric"><div class="project-metric-val">8 wks</div><div class="project-metric-key">Timeline</div></div>
+          </div>
+          <a href="/retail-storefront-construction.html" class="project-link">View Service Page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Restaurant 1 -->
+      <div class="project-card" data-category="restaurant commercial">
+        <div class="project-img" style="background:linear-gradient(135deg,#FFF0F0,#FFE4E6);">
+          <div class="project-img-placeholder">🍽️</div>
+          <div class="project-badge commercial">Restaurant</div>
+          <div class="project-city-badge">Pearland, TX</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Pearland Casual Dining — 3,200 Sq Ft Full Build-Out</h3>
+          <p class="project-desc">Full restaurant build including commercial kitchen with Type I hood, 85-seat dining room, custom bar with backlit shelving, full health code compliance package.</p>
+          <div class="project-metrics">
+            <div class="project-metric"><div class="project-metric-val">3,200</div><div class="project-metric-key">Sq Ft</div></div>
+            <div class="project-metric"><div class="project-metric-val">85</div><div class="project-metric-key">Seats</div></div>
+            <div class="project-metric"><div class="project-metric-val">16 wks</div><div class="project-metric-key">Timeline</div></div>
+          </div>
+          <a href="/restaurant-construction.html" class="project-link">View Service Page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Medical 2 -->
+      <div class="project-card" data-category="medical healthcare">
+        <div class="project-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA);">
+          <div class="project-img-placeholder">🔬</div>
+          <div class="project-badge healthcare">Medical</div>
+          <div class="project-city-badge">Cypress, TX</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Cypress Urgent Care Center — Complete Fit-Out</h3>
+          <p class="project-desc">5,000 sq ft urgent care build-out with 12 exam rooms, on-site lab, digital X-ray suite, separate waiting areas for pediatric and adult patients, TDLR compliant.</p>
+          <div class="project-metrics">
+            <div class="project-metric"><div class="project-metric-val">5,000</div><div class="project-metric-key">Sq Ft</div></div>
+            <div class="project-metric"><div class="project-metric-val">12</div><div class="project-metric-key">Exam Rooms</div></div>
+            <div class="project-metric"><div class="project-metric-val">18 wks</div><div class="project-metric-key">Timeline</div></div>
+          </div>
+          <a href="/medical-clinic-construction.html" class="project-link">View Service Page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Residential 1 -->
+      <div class="project-card" data-category="residential">
+        <div class="project-img" style="background:linear-gradient(135deg,#F0FDF4,#BBF7D0);">
+          <div class="project-img-placeholder">🏠</div>
+          <div class="project-badge residential">Custom Home</div>
+          <div class="project-city-badge">Friendswood, TX</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Friendswood Custom Home — 4,100 Sq Ft New Construction</h3>
+          <p class="project-desc">Ground-up custom home with open-concept chef's kitchen, master suite with spa bath, 3-car garage, outdoor kitchen and covered patio. Delivered on schedule.</p>
+          <div class="project-metrics">
+            <div class="project-metric"><div class="project-metric-val">4,100</div><div class="project-metric-key">Sq Ft</div></div>
+            <div class="project-metric"><div class="project-metric-val">4 BR</div><div class="project-metric-key">Bedrooms</div></div>
+            <div class="project-metric"><div class="project-metric-val">9 mo</div><div class="project-metric-key">Timeline</div></div>
+          </div>
+          <a href="/custom-home-construction.html" class="project-link">View Service Page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Dental 3 -->
+      <div class="project-card" data-category="dental healthcare">
+        <div class="project-img" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);">
+          <div class="project-img-placeholder">🦷</div>
+          <div class="project-badge dental">Dental</div>
+          <div class="project-city-badge">League City, TX</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">League City Pediatric Dentistry — Child-Friendly 5-Op Build</h3>
+          <p class="project-desc">Specialized pediatric dental office with themed operatories, ceiling TVs, nitrous oxide plumbing, panoramic X-ray room, and expansive open-bay treatment area.</p>
+          <div class="project-metrics">
+            <div class="project-metric"><div class="project-metric-val">2,800</div><div class="project-metric-key">Sq Ft</div></div>
+            <div class="project-metric"><div class="project-metric-val">5</div><div class="project-metric-key">Operatories</div></div>
+            <div class="project-metric"><div class="project-metric-val">10 wks</div><div class="project-metric-key">Timeline</div></div>
+          </div>
+          <a href="/dental-clinic-construction.html" class="project-link">View Service Page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Office 1 -->
+      <div class="project-card" data-category="commercial">
+        <div class="project-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE);">
+          <div class="project-img-placeholder">🏢</div>
+          <div class="project-badge commercial">Office</div>
+          <div class="project-city-badge">Houston, TX</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Energy Corridor Corporate Office — 8,000 Sq Ft Fit-Out</h3>
+          <p class="project-desc">Full corporate office build-out: open floor plan, 12 private offices, 3 conference rooms, full kitchen and break room, custom reception, raised flooring for data cabling.</p>
+          <div class="project-metrics">
+            <div class="project-metric"><div class="project-metric-val">8,000</div><div class="project-metric-key">Sq Ft</div></div>
+            <div class="project-metric"><div class="project-metric-val">80+</div><div class="project-metric-key">Workstations</div></div>
+            <div class="project-metric"><div class="project-metric-val">12 wks</div><div class="project-metric-key">Timeline</div></div>
+          </div>
+          <a href="/office-build-out-construction.html" class="project-link">View Service Page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Veterinary 1 -->
+      <div class="project-card" data-category="healthcare">
+        <div class="project-img" style="background:linear-gradient(135deg,#F5F3FF,#DDD6FE);">
+          <div class="project-img-placeholder">🐾</div>
+          <div class="project-badge healthcare">Veterinary</div>
+          <div class="project-city-badge">Missouri City, TX</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Missouri City Animal Hospital — Full Practice Build-Out</h3>
+          <p class="project-desc">Complete veterinary hospital construction including 4 exam rooms, surgical suite, dental suite, ICU area, radiology room, grooming salon and boarding kennels.</p>
+          <div class="project-metrics">
+            <div class="project-metric"><div class="project-metric-val">4,600</div><div class="project-metric-key">Sq Ft</div></div>
+            <div class="project-metric"><div class="project-metric-val">4</div><div class="project-metric-key">Exam Rooms</div></div>
+            <div class="project-metric"><div class="project-metric-val">20 wks</div><div class="project-metric-key">Timeline</div></div>
+          </div>
+          <a href="/veterinary-clinic-construction.html" class="project-link">View Service Page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Residential 2 -->
+      <div class="project-card" data-category="residential">
+        <div class="project-img" style="background:linear-gradient(135deg,#ECFDF5,#A7F3D0);">
+          <div class="project-img-placeholder">🔨</div>
+          <div class="project-badge residential">Remodel</div>
+          <div class="project-city-badge">Spring, TX</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Spring Home Full Renovation — Kitchen, Baths & Master Suite</h3>
+          <p class="project-desc">Complete interior renovation of 1990s home: new kitchen with waterfall island, 2 full bath remodels, master suite addition, new flooring throughout, fresh interior/exterior paint.</p>
+          <div class="project-metrics">
+            <div class="project-metric"><div class="project-metric-val">2,900</div><div class="project-metric-key">Sq Ft</div></div>
+            <div class="project-metric"><div class="project-metric-val">4</div><div class="project-metric-key">Rooms Reno'd</div></div>
+            <div class="project-metric"><div class="project-metric-val">10 wks</div><div class="project-metric-key">Timeline</div></div>
+          </div>
+          <a href="/home-remodeling.html" class="project-link">View Service Page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Childcare 1 -->
+      <div class="project-card" data-category="commercial">
+        <div class="project-img" style="background:linear-gradient(135deg,#ECFDF5,#BBF7D0);">
+          <div class="project-img-placeholder">👶</div>
+          <div class="project-badge commercial">Childcare</div>
+          <div class="project-city-badge">Richmond, TX</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Richmond Learning Center — 7,500 Sq Ft Daycare Facility</h3>
+          <p class="project-desc">State-licensed childcare facility with 6 age-specific classrooms, commercial kitchen, indoor gym, administrative wing, and full outdoor playground per DFPS requirements.</p>
+          <div class="project-metrics">
+            <div class="project-metric"><div class="project-metric-val">7,500</div><div class="project-metric-key">Sq Ft</div></div>
+            <div class="project-metric"><div class="project-metric-val">120</div><div class="project-metric-key">Child Capacity</div></div>
+            <div class="project-metric"><div class="project-metric-val">22 wks</div><div class="project-metric-key">Timeline</div></div>
+          </div>
+          <a href="/childcare-daycare-construction.html" class="project-link">View Service Page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+    </div><!-- /projects-grid -->
+
+    <!-- Load More -->
+    <div style="text-align:center;margin-top:48px;">
+      <p style="color:#94A3B8;font-size:14px;margin-bottom:16px;">Showing 12 of 100+ completed projects</p>
+      <a href="/request-a-quote.html" class="btn-secondary" style="display:inline-flex;align-items:center;gap:8px;">
+        Ready to Start Your Project? Get a Free Quote
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIALS STRIP -->
+<section style="background:#F8FAFC;padding:60px 0;margin-top:60px;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px;">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#00B4D8;margin-bottom:8px;">Client Reviews</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:28px;color:#0F172A;margin:0;">What Our Clients Say About Their Projects</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Qamar Construction built our 8-operatory dental clinic from raw shell space. Zain and his team handled everything — permits, plumbing, millwork. They finished 2 weeks early and under budget."</p>
+        <div class="review-author">Dr. Khalid Amin</div>
+        <div class="review-practice">Woodlands Family Dental · The Woodlands, TX</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"We needed our medical practice expansion done without closing. Qamar delivered. Four phases, zero patient disruption, and the new space looks incredible. I can't recommend them highly enough."</p>
+        <div class="review-author">Dr. Priya Sharma, MD</div>
+        <div class="review-practice">PCP For Life · Katy, TX</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Our restaurant build was complex — commercial kitchen, bar, outdoor patio. Qamar knew every code requirement and kept our timeline. We opened on schedule and our customers love the space."</p>
+        <div class="review-author">Maria & James Torres</div>
+        <div class="review-practice">Casa Bella Restaurant · Pearland, TX</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:60px 0;">
+  <div class="container">
+    <div class="cta-strip">
+      <h2>Your Project Could Be Next in Our Portfolio</h2>
+      <p>Join 100+ Houston businesses and homeowners who trusted Qamar Construction to deliver their vision. Get your free project consultation today.</p>
+      <div class="cta-strip-btns">
+        <a href="/request-a-quote.html" class="btn-primary" style="background:#fff;color:#1565C0;">Get Free Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1565C0" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="tel:+18327669246" class="btn-secondary" style="background:transparent;border-color:rgba(255,255,255,.4);color:#fff;">Call (832) 766-9246</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/index.html" class="nav-logo" style="margin-bottom:16px;">
+          <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div><span class="nav-logo-name">Qamar Construction</span><span class="nav-logo-sub">Design · Build · Deliver</span></div>
+        </a>
+        <p class="footer-tagline">Houston's Premier Design-Build Specialists. Healthcare, commercial & residential construction across 70+ cities since 1999.</p>
+        <div class="footer-social"><a href="https://www.facebook.com/qamarconstruction" target="_blank" rel="noopener" class="social-link">f</a><a href="https://www.instagram.com/qamarconstruction" target="_blank" rel="noopener" class="social-link">ig</a><a href="https://www.linkedin.com/company/qamar-construction" target="_blank" rel="noopener" class="social-link">in</a></div>
+      </div>
+      <div>
+        <div class="footer-col-title">Healthcare</div>
+        <ul class="footer-links">
+          <li><a href="/dental-clinic-construction.html">Dental Clinic Construction</a></li>
+          <li><a href="/medical-clinic-construction.html">Medical Clinic Construction</a></li>
+          <li><a href="/medical-facility-construction.html">Medical Facility Build-Outs</a></li>
+          <li><a href="/veterinary-clinic-construction.html">Veterinary Clinics</a></li>
+          <li><a href="/optical-vision-clinic-construction.html">Optical & Vision Clinics</a></li>
+          <li><a href="/mental-health-office-construction.html">Mental Health Offices</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="/about-us.html">About Qamar</a></li>
+          <li><a href="/turn-key-design-build.html">Turn-Key Process</a></li>
+          <li><a href="/projects.html" style="color:#00B4D8;">Our Projects</a></li>
+          <li><a href="/service-areas.html">Service Areas</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+          <li><a href="/request-a-quote.html">Request a Quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.5 19.79 19.79 0 0 1 1.61 2.9 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+18327669246">(832) 766-9246</a></div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="/cdn-cgi/l/email-protection#e892898186a8998985899a8b87869b9c9a9d8b9c818786c68b8785"><span class="__cf_email__" data-cfemail="3c465d55527c4d5d515d4e5f53524f484e495f48555352125f5351">[email&#160;protected]</span></a></div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>12650 Crossroads Park Dr, Suite 125<br>Houston, TX 77065</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-legal">© 2026 Qamar Construction LLC · All Rights Reserved · Houston, Texas &nbsp;<a href="/privacy-policy.html">Privacy Policy</a> <a href="/terms-of-service.html">Terms</a> <a href="/sitemap.html">Sitemap</a></span>
+      <div class="footer-certs"><span class="cert-badge">BBB Accredited Business</span><span class="cert-badge">Licensed General Contractor · Texas</span></div>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:12px 0 16px;border-top:1px solid rgba(255,255,255,0.06);margin-top:16px;">
+    <span style="font-size:11px;color:rgba(255,255,255,0.3);letter-spacing:0.5px;">Website designed &amp; managed by <a href="https://53printers.com" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.45);text-decoration:none;font-weight:600;">53Printers.com</a></span>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="float-stack">
+  <a href="tel:+18327669246" class="float-phone-pill"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg><span>(832) 766-9246</span></a>
+  <a href="https://wa.me/18327669246?text=Hi%20Qamar%20Construction!%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" class="float-btn float-whatsapp"><div class="float-wa-pulse"></div><svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/shared.js"></script>
+<script>
+  // Extended filter for projects page
+  function filterProjects(category, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    if(btn) btn.classList.add('active');
+    const cards = document.qu
