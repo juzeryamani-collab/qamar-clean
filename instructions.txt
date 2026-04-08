@@ -1,0 +1,14 @@
+ https://qamarconstruction.com this is the client's current website. study the site. understand the business. you are
+  going to act as a new graphic designer and web developer to first create skills to build a new powerful website with
+  high quality seo and aeo implementation for this customer. the logo file is in the current folder. we are going to
+  use the color scheme based on his logo file with the dark graphite stainless steel background look that's in the
+  logo. we will add lots of different services and ideas later on in the website, but we first want to start off by
+  highlighting and focusing on medical clinics full design to buildout, dental clinics, medical urgent care facilities
+  - full turn key design build. each must have a dedicated page. targeting houston and all surrounding areas with names
+   and locations for high quality impactful marketing up to 40 miles radius from the center of houston. the site needs
+  to be fully compatible with mobile devices, so always double check all the code and design first. think of this from
+  top down, and think of things i have not thought about also. lets build in phases with what the client wants first
+  right away and then we can add more things in different phases. his phone # from the current site also supports
+  whatsapp so include a whatsapp floating icon or something on the new site also. texting, whatsapp, email, all
+  included. think first. come up with a master plan. build skills. create a demo page to run by client for approval.
+  we'll then go from there.
