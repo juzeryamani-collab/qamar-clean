@@ -140,7 +140,7 @@ export default function Footer() {
               <span className="font-oswald font-semibold tracking-wide group-hover:text-brand-gold transition-colors" style={{ color: '#c9a84c99' }}>
                 53PRINTERS
               </span>
-              <span className="text-brand-muted/30">· AI-Powered Design</span>
+              <span className="text-brand-muted/30">· Engineering the AI Age</span>
             </a>
           </div>
         </div>
