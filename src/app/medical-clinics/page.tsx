@@ -11,6 +11,7 @@ export default function MedicalClinicsPage() {
   return (
     <ServicePageTemplate
       tag="Medical Clinics"
+      heroImage="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1920&q=80"
       heroTitle="Medical Clinic Construction &amp; |Renovation| in Houston"
       heroSub="From primary care to specialty practices — Qamar handles full-scope design, permitting, and construction for medical clinic facilities of any size across the Greater Houston area."
       scopeHeading="Types of Medical Clinics We Build"

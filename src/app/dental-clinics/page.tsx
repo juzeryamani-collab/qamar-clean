@@ -11,6 +11,7 @@ export default function DentalClinicsPage() {
   return (
     <ServicePageTemplate
       tag="Dental Clinics"
+      heroImage="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1920&q=80"
       heroTitle="Dental Office Construction &amp; |Design| in Houston"
       heroSub="We build dental practices from the ground up — understanding operatory layout, plumbing, cabinetry, and dental equipment requirements that standard contractors simply don't know."
       scopeHeading="Dental Facility Types We Build"

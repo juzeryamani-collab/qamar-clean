@@ -42,6 +42,10 @@ export const metadata: Metadata = {
     siteName: 'Qamar Construction',
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: '/favicon.png',
+    apple: '/favicon.png',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

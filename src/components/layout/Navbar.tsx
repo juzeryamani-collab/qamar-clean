@@ -23,10 +23,17 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 flex-shrink-0">
-            <Image src="/logo.png" alt="Qamar Construction" width={48} height={48} className="object-contain" priority />
-            <span className="font-oswald font-bold text-xl tracking-wide hidden sm:block">
-              QAMAR <span className="text-brand-gold">CONSTRUCTION</span>
-            </span>
+            <div className="relative">
+              <div className="absolute inset-0 rounded-full blur-md opacity-30 scale-125"
+                style={{ background: 'radial-gradient(circle, #c9a84c, transparent)' }} />
+              <Image src="/logo.png" alt="Qamar Construction" width={56} height={56} className="object-contain relative z-10" priority />
+            </div>
+            <div className="hidden sm:block">
+              <p className="font-oswald font-bold text-xl tracking-wide leading-none">
+                QAMAR <span className="text-brand-gold">CONSTRUCTION</span>
+              </p>
+              <p className="text-brand-muted text-[10px] font-lato uppercase tracking-widest mt-0.5">Houston, TX</p>
+            </div>
           </Link>
 
           {/* Desktop nav */}

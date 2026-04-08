@@ -6,13 +6,34 @@
   html { scroll-behavior: smooth; }
 
   body {
-    @apply bg-brand-bg text-brand-text font-lato antialiased;
+    @apply text-brand-text font-lato antialiased;
+    /* Metallic graphite stainless steel base */
+    background-color: #1a1a1e;
+    background-image:
+      /* Horizontal brush strokes — the key to the steel look */
+      repeating-linear-gradient(
+        0deg,
+        transparent 0px,
+        transparent 2px,
+        rgba(255, 255, 255, 0.013) 2px,
+        rgba(255, 255, 255, 0.013) 3px
+      ),
+      /* Diagonal sheen — mimics light reflecting off brushed metal */
+      linear-gradient(
+        112deg,
+        rgba(10, 10, 13, 1)  0%,
+        rgba(22, 22, 26, 1) 30%,
+        rgba(32, 32, 37, 1) 50%,
+        rgba(22, 22, 26, 1) 70%,
+        rgba(10, 10, 13, 1) 100%
+      );
+    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 { @apply font-oswald; }
 
   ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { @apply bg-brand-bg; }
+  ::-webkit-scrollbar-track { background: #111113; }
   ::-webkit-scrollbar-thumb { @apply bg-brand-gold-dim rounded-full; }
 }
 
@@ -35,5 +56,36 @@
   }
   .gold-divider {
     @apply w-16 h-0.5 bg-brand-gold my-6;
+  }
+
+  /* Metallic surface for cards and sections */
+  .metallic-surface {
+    background-color: #232327;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent 0px,
+        transparent 2px,
+        rgba(255, 255, 255, 0.009) 2px,
+        rgba(255, 255, 255, 0.009) 3px
+      ),
+      linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0) 25%,
+        rgba(255, 255, 255, 0.025) 50%,
+        rgba(255, 255, 255, 0) 75%
+      );
+  }
+
+  /* Gold shimmer used on borders/accents */
+  .gold-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(201, 168, 76, 0.6) 40%,
+      rgba(226, 194, 110, 1) 50%,
+      rgba(201, 168, 76, 0.6) 60%,
+      transparent 100%
+    );
   }
 }

@@ -10,10 +10,10 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          bg:           '#1a1a1a',
-          surface:      '#242424',
-          'surface-2':  '#2e2e2e',
-          border:       '#3a3a3a',
+          bg:           '#1a1a1e',
+          surface:      '#232327',
+          'surface-2':  '#2c2c31',
+          border:       '#3a3a40',
           gold:         '#c9a84c',
           'gold-hover': '#e2c26e',
           'gold-dim':   '#8a7030',

@@ -11,6 +11,7 @@ export default function UrgentCarePage() {
   return (
     <ServicePageTemplate
       tag="Urgent Care Facilities"
+      heroImage="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=1920&q=80"
       heroTitle="Urgent Care Center |Construction| in Houston"
       heroSub="Speed to market matters in urgent care. Qamar delivers fast-track design-build for urgent care facilities — fully code-compliant, patient-ready, and built to handle high-volume walk-in traffic from day one."
       scopeHeading="Urgent Care Facilities We Build"
