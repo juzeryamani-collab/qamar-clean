@@ -4,6 +4,7 @@ import ProcessSteps from '@/components/sections/ProcessSteps'
 import LocationsGrid from '@/components/sections/LocationsGrid'
 import CtaBanner from '@/components/sections/CtaBanner'
 import Testimonials from '@/components/sections/Testimonials'
+import FaqAccordion, { type Faq } from '@/components/sections/FaqAccordion'
 
 interface Scope   { icon: LucideIcon; title: string; description: string }
 interface Feature { title: string; description: string }
@@ -22,10 +23,11 @@ interface Props {
   compliance?: string
   testimonials?: Testimonial[]
   testimonialsHeading?: string
+  faqs?: Faq[]
 }
 
 export default function ServicePageTemplate({
-  tag, heroTitle, heroSub, heroImage, scopeHeading, scopeItems, features, steps, compliance, testimonials, testimonialsHeading
+  tag, heroTitle, heroSub, heroImage, scopeHeading, scopeItems, features, steps, compliance, testimonials, testimonialsHeading, faqs
 }: Props) {
   return (
     <>
@@ -138,6 +140,73 @@ export default function ServicePageTemplate({
 
       {testimonials && testimonials.length > 0 && (
         <Testimonials testimonials={testimonials} heading={testimonialsHeading} />
+      )}
+
+      {faqs && faqs.length > 0 && (
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: faqs.map(f => ({
+                  '@type': 'Question',
+                  name: f.question,
+                  acceptedAnswer: { '@type': 'Answer', text: f.answer },
+                })),
+              }),
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'Service',
+                name: tag,
+                provider: {
+                  '@type': 'LocalBusiness',
+                  name: 'Qamar Construction',
+                  telephone: '+18327669246',
+                  url: 'https://qamar.53printers.com',
+                },
+                areaServed: { '@type': 'State', name: 'Texas' },
+                description: heroSub,
+              }),
+            }}
+          />
+          <section
+            className="py-24 border-y border-brand-border"
+            style={{
+              background: 'linear-gradient(180deg, #0e0e12 0%, #131317 100%)',
+              backgroundImage: 'repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(255,255,255,0.008) 2px, rgba(255,255,255,0.008) 3px), linear-gradient(180deg, #0e0e12 0%, #131317 100%)',
+            }}
+          >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+                <div className="lg:col-span-1">
+                  <span className="section-tag">FAQ</span>
+                  <h2 className="section-heading mb-4">Common Questions</h2>
+                  <p className="text-brand-muted text-sm font-lato leading-relaxed">
+                    Still have questions? Call us directly at{' '}
+                    <a href="tel:+18327669246" className="text-brand-gold hover:text-brand-gold-hover transition-colors">
+                      (832) 766-9246
+                    </a>{' '}
+                    or{' '}
+                    <a href="https://wa.me/18327669246" target="_blank" rel="noopener noreferrer" className="text-brand-gold hover:text-brand-gold-hover transition-colors">
+                      WhatsApp us
+                    </a>
+                    .
+                  </p>
+                </div>
+                <div className="lg:col-span-2">
+                  <FaqAccordion faqs={faqs} />
+                </div>
+              </div>
+            </div>
+          </section>
+        </>
       )}
 
       <LocationsGrid />

@@ -32,6 +32,32 @@ export default function DentalClinicsPage() {
         { title: 'Patient Experience Design',  description: 'Reception, consultation rooms, and operatory design focused on reducing dental anxiety and building patient trust.' },
       ]}
       compliance="We coordinate with dental equipment suppliers (Patterson, Henry Schein, Burkhart, etc.) to ensure all rough-in dimensions, utility specs, and clearances meet manufacturer requirements. ADA compliant throughout."
+      faqs={[
+        {
+          question: 'How much does dental office construction cost in Houston?',
+          answer: 'Dental office construction in Houston typically ranges from $100–$250 per square foot depending on the number of operatories, cabinetry quality, and specialty requirements. A 4-operatory general dentistry office generally runs $250,000–$450,000. Specialty offices (oral surgery, orthodontics) with custom equipment and higher-end finishes run more. Qamar provides a detailed estimate after reviewing your space and equipment plans.',
+        },
+        {
+          question: 'How long does dental office construction take?',
+          answer: 'A standard dental office build-out takes 3–5 months from permit issuance to opening day. Complex multi-operatory or specialty dental offices may take 5–7 months. Qamar Construction manages permitting and construction sequencing to minimize your timeline and keep your opening date on track.',
+        },
+        {
+          question: 'Do you coordinate with dental equipment suppliers like Patterson or Henry Schein?',
+          answer: 'Yes — and this is one of our key differentiators. We work directly with Patterson Dental, Henry Schein, Burkhart, and other major suppliers to confirm rough-in dimensions, vacuum line locations, air and water delivery positions, and electrical panel requirements before walls close. This prevents costly change orders during equipment installation.',
+        },
+        {
+          question: 'Can you convert an existing commercial space into a dental office?',
+          answer: 'Yes. Converting retail, medical, or office space into a dental office is a Qamar specialty. We assess the existing mechanical, electrical, and plumbing infrastructure, identify what needs to be upgraded, and produce a full scope that maximizes reuse and minimizes cost. Many dentists find conversion faster and more affordable than ground-up construction.',
+        },
+        {
+          question: 'What is a dental operatory and how many can you build?',
+          answer: 'A dental operatory is a fully equipped patient treatment room — each requires dedicated plumbing (air, water, vacuum, drain), electrical circuits for the chair and lighting, and custom cabinetry. Qamar Construction has built single-operatory suites up to 20+ operatory group practices, with layouts optimized for staff workflow and patient throughput.',
+        },
+        {
+          question: 'Do your dental office builds meet ADA and OSHA requirements?',
+          answer: "Yes. Every dental office Qamar builds is fully ADA compliant — including accessible entrances, treatment rooms, and restrooms. We also design central sterilization areas to meet OSHA bloodborne pathogen standards with proper dirty-to-clean workflow separation. These aren't add-ons — they're built into every scope from day one.",
+        },
+      ]}
       testimonialsHeading="What Houston Dentists Are Saying"
       testimonials={[
         {

@@ -39,6 +39,32 @@ export default function UrgentCarePage() {
         { title: 'Signage & Exterior',         description: 'High-visibility exterior signage, canopy, and drive-up design to attract walk-in traffic from day one.' },
       ]}
       compliance="Urgent care construction in Texas requires coordination with the Texas DSHS Health Facility Licensing Program, local fire marshals, and ADA accessibility compliance. We manage the entire regulatory process."
+      faqs={[
+        {
+          question: 'How long does it take to build an urgent care center in Houston?',
+          answer: 'A retail-to-urgent-care conversion typically takes 3–5 months from permit issuance to certificate of occupancy. Ground-up construction runs 6–10 months. Qamar Construction specializes in fast-track urgent care builds — time to open is a core part of our process, and we consistently deliver ahead of schedule for Houston-area operators.',
+        },
+        {
+          question: 'Can you convert a vacant retail or strip center space into an urgent care facility?',
+          answer: "Yes — retail-to-medical conversion is one of Qamar's specialties. We evaluate the existing shell, assess HVAC, electrical, and plumbing infrastructure, and produce a full conversion scope including treatment rooms, triage, imaging, lab, and ADA-compliant patient flow. Most clients find conversion faster and more cost-effective than ground-up construction.",
+        },
+        {
+          question: 'What permits are required to open an urgent care center in Texas?',
+          answer: 'Urgent care centers in Texas require local building permits, a certificate of occupancy, fire marshal approval, and registration with the Texas Department of State Health Services (DSHS) as an outpatient health care facility. Qamar Construction manages all of these permits and agency submissions in-house so you never have to navigate the regulatory process alone.',
+        },
+        {
+          question: 'How much does urgent care center construction cost in Houston?',
+          answer: 'Urgent care construction in Houston ranges from $150–$300+ per square foot depending on treatment room count, imaging equipment, and finish level. A 3,000–5,000 sq ft facility with 8–10 treatment rooms and an x-ray room typically runs $450,000–$900,000. Qamar provides a detailed estimate after reviewing your space and program requirements.',
+        },
+        {
+          question: 'Do you build urgent care centers for franchise or multi-location operators?',
+          answer: "Yes. Qamar Construction works with both independent operators opening their first urgent care and regional franchise operators expanding across Houston. We understand brand standard requirements and can replicate layouts and finish packages across multiple sites with consistent quality and timeline.",
+        },
+        {
+          question: 'Do urgent care facilities require radiation shielding for x-ray rooms?',
+          answer: 'Yes. Texas DSHS requirements and federal standards mandate lead-lined or equivalent radiation shielding for any room housing x-ray or fluoroscopy equipment. Qamar designs and builds these rooms to meet all state and federal radiation protection standards, and we coordinate directly with your imaging equipment vendor to confirm shielding specifications before construction begins.',
+        },
+      ]}
       testimonialsHeading="What Urgent Care Operators Are Saying"
       testimonials={[
         {
