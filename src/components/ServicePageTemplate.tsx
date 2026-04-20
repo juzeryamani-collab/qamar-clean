@@ -13,6 +13,7 @@ interface Testimonial { quote: string; name: string; title: string; practice: st
 
 interface Props {
   tag: string
+  slug: string
   heroTitle: string
   heroSub: string
   heroImage?: string
@@ -26,11 +27,77 @@ interface Props {
   faqs?: Faq[]
 }
 
+const BASE = 'https://medicaldentaldesignbuild.com'
+
 export default function ServicePageTemplate({
-  tag, heroTitle, heroSub, heroImage, scopeHeading, scopeItems, features, steps, compliance, testimonials, testimonialsHeading, faqs
+  tag, slug, heroTitle, heroSub, heroImage, scopeHeading, scopeItems, features, steps, compliance, testimonials, testimonialsHeading, faqs
 }: Props) {
+  const pageUrl = `${BASE}${slug}`
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
+      { '@type': 'ListItem', position: 2, name: tag, item: pageUrl },
+    ],
+  }
+
+  const howToSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: `How to Build a ${tag} Facility in Houston, TX`,
+    description: `Step-by-step process for building a ${tag.toLowerCase()} with Qamar Construction in Houston, Texas.`,
+    totalTime: 'P6M',
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: 'Free Consultation',
+        text: `Contact Qamar Construction for a free consultation. We assess your space requirements, budget, timeline, and location to give you an accurate project scope for your ${tag.toLowerCase()}.`,
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: 'Space Planning & Design',
+        text: `Our team produces permit-ready architectural drawings optimized for patient flow, ADA compliance, and medical equipment requirements. Every layout is purpose-built for a ${tag.toLowerCase()}.`,
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: 'Permitting & Approvals',
+        text: 'Qamar Construction manages all city building permits, Texas DSHS submissions, fire marshal approvals, and zoning requirements — fully handled in-house so you never have to navigate government agencies.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 4,
+        name: 'Construction',
+        text: 'Full-scope construction including MEP systems (mechanical, electrical, plumbing), framing, finishes, cabinetry, specialty medical systems, and equipment rough-ins — all under one contract.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 5,
+        name: 'Turnkey Handoff',
+        text: 'We deliver a completed certificate of occupancy, a final punch list walkthrough, and a patient-ready facility. One team, one contract — from concept to opening day.',
+      },
+    ],
+  }
+
+  const speakableSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    url: pageUrl,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.speakable'],
+    },
+  }
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       {/* Hero with photo */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         {heroImage && (
@@ -59,7 +126,7 @@ export default function ServicePageTemplate({
                 : <span key={i} className="text-brand-gold" style={{ textShadow: '0 0 40px rgba(201,168,76,0.35)' }}>{part}</span>
             )}
           </h1>
-          <p className="text-brand-muted mt-5 text-lg max-w-2xl font-lato leading-relaxed">{heroSub}</p>
+          <p className="speakable text-brand-muted mt-5 text-lg max-w-2xl font-lato leading-relaxed">{heroSub}</p>
           <div className="flex flex-wrap gap-4 mt-8">
             <Link href="/contact" className="btn-primary" style={{ boxShadow: '0 4px 20px rgba(201,168,76,0.25)' }}>
               Request a Quote <ArrowRight className="w-4 h-4" />
@@ -169,7 +236,7 @@ export default function ServicePageTemplate({
                   '@type': 'LocalBusiness',
                   name: 'Qamar Construction',
                   telephone: '+18327669246',
-                  url: 'https://qamar.53printers.com',
+                  url: 'https://medicaldentaldesignbuild.com',
                 },
                 areaServed: { '@type': 'State', name: 'Texas' },
                 description: heroSub,

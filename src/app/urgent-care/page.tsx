@@ -11,6 +11,7 @@ export default function UrgentCarePage() {
   return (
     <ServicePageTemplate
       tag="Urgent Care Facilities"
+      slug="/urgent-care"
       heroImage="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=1920&q=80"
       heroTitle="Urgent Care Center |Construction| in Houston"
       heroSub="Speed to market matters in urgent care. Qamar delivers fast-track design-build for urgent care facilities — fully code-compliant, patient-ready, and built to handle high-volume walk-in traffic from day one."
@@ -63,6 +64,22 @@ export default function UrgentCarePage() {
         {
           question: 'Do urgent care facilities require radiation shielding for x-ray rooms?',
           answer: 'Yes. Texas DSHS requirements and federal standards mandate lead-lined or equivalent radiation shielding for any room housing x-ray or fluoroscopy equipment. Qamar designs and builds these rooms to meet all state and federal radiation protection standards, and we coordinate directly with your imaging equipment vendor to confirm shielding specifications before construction begins.',
+        },
+        {
+          question: 'What is the ideal size for an urgent care center in Houston?',
+          answer: 'Most successful urgent care centers in Houston range from 2,500 to 5,000 square feet, depending on anticipated patient volume and the number of treatment rooms. A typical 3,000–3,500 sq ft layout supports 8–10 treatment rooms with reception, triage, imaging, lab, and provider stations. High-volume operators or multi-service facilities may require 5,000–8,000 sq ft. Qamar Construction can evaluate any space and help you design a layout that maximizes your patient throughput per square foot.',
+        },
+        {
+          question: 'What are the Texas DSHS requirements for urgent care centers?',
+          answer: 'In Texas, urgent care centers that provide certain services (including IV therapy, x-ray, or extended observation) may need to register with the Texas Department of State Health Services (DSHS) as an outpatient health care facility. This triggers specific construction standards for room sizes, ventilation, plumbing fixtures, and finishes. Qamar Construction is experienced with DSHS outpatient facility requirements and builds to these standards from day one — avoiding costly retrofits at the end of the project.',
+        },
+        {
+          question: 'How do I choose the right location for an urgent care center in the Houston area?',
+          answer: 'The best urgent care locations in Houston share common characteristics: high-traffic retail corridors with easy in-and-out access, proximity to residential density, visible signage opportunities, and ample parking (minimum 5–6 spaces per 1,000 sq ft). Strip centers and inline retail spaces are ideal because patients associate urgent care with easy accessibility. Qamar Construction will evaluate any potential site before you sign a lease — assessing structural suitability for medical conversion, utility infrastructure, and ADA accessibility at no charge.',
+        },
+        {
+          question: 'Can Qamar Construction build a second or third urgent care location that matches our existing design?',
+          answer: "Yes. Multi-location consistency is a Qamar specialty. We document your first location's layout, finish specifications, signage standards, and MEP design so that every subsequent location delivers the same patient experience. Whether you're a franchise operator with national brand standards or an independent group expanding to a second site, we replicate quality and design with precision across every location.",
         },
       ]}
       testimonialsHeading="What Urgent Care Operators Are Saying"

@@ -11,6 +11,7 @@ export default function DentalClinicsPage() {
   return (
     <ServicePageTemplate
       tag="Dental Clinics"
+      slug="/dental-clinics"
       heroImage="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1920&q=80"
       heroTitle="Dental Office Construction &amp; |Design| in Houston"
       heroSub="We build dental practices from the ground up — understanding operatory layout, plumbing, cabinetry, and dental equipment requirements that standard contractors simply don't know."
@@ -56,6 +57,22 @@ export default function DentalClinicsPage() {
         {
           question: 'Do your dental office builds meet ADA and OSHA requirements?',
           answer: "Yes. Every dental office Qamar builds is fully ADA compliant — including accessible entrances, treatment rooms, and restrooms. We also design central sterilization areas to meet OSHA bloodborne pathogen standards with proper dirty-to-clean workflow separation. These aren't add-ons — they're built into every scope from day one.",
+        },
+        {
+          question: 'What is the best floor plan layout for a multi-operatory dental office?',
+          answer: "The best dental office layout depends on the number of operatories, the doctor-to-assistant ratio, and patient volume. Common configurations include a central hallway with operatories on both sides (efficient for high volume), a pod layout grouping 2–4 chairs around a central sterilization core (ideal for multi-doctor practices), and a modified open-bay design for specialty practices like pediatric dentistry. Qamar Construction designs operatory layouts that maximize the provider's efficiency and minimize patient travel distances — both of which directly impact your daily production.",
+        },
+        {
+          question: 'How far in advance should I contact Qamar Construction before my dental lease starts?',
+          answer: "Ideally 4–6 months before your target opening date. Here's why: permit drawings take 3–4 weeks, city plan review takes 4–8 weeks (sometimes more in Houston), and construction takes 3–5 months. If you wait until after signing your lease to start planning, you risk delayed opening and paying rent on a space that isn't built yet. Qamar Construction can often begin preliminary planning and space evaluation before your lease executes — contact us as early as possible.",
+        },
+        {
+          question: 'What is an amalgam separator and is it required in my dental office?',
+          answer: "An amalgam separator is a plumbing device that captures mercury-containing amalgam waste before it enters the sewer system. The EPA requires amalgam separators in virtually all dental practices that place or remove amalgam restorations. Qamar Construction installs compliant amalgam separators as a standard part of all dental office plumbing rough-ins — it's included in our scope, not a costly add-on discovered during inspection.",
+        },
+        {
+          question: 'Can Qamar Construction build a dental office in a medical office building in Houston?',
+          answer: "Yes. We frequently build dental offices within medical office buildings (MOBs), retail centers, and professional office parks throughout Houston. We coordinate directly with building management on tenant improvement allowances, utility connections, and landlord design requirements. Many MOBs have existing dental-friendly infrastructure — we evaluate this during our initial site assessment to identify opportunities to reduce your build-out cost.",
         },
       ]}
       testimonialsHeading="What Houston Dentists Are Saying"

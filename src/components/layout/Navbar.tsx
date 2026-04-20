@@ -55,7 +55,9 @@ export default function Navbar() {
                 ))}
               </div>
             </div>
+            <Link href="/services"  className="font-oswald uppercase tracking-widest text-xs text-brand-muted hover:text-brand-gold transition-colors">Services</Link>
             <Link href="/locations" className="font-oswald uppercase tracking-widest text-xs text-brand-muted hover:text-brand-gold transition-colors">Locations</Link>
+            <Link href="/about"     className="font-oswald uppercase tracking-widest text-xs text-brand-muted hover:text-brand-gold transition-colors">About</Link>
             <Link href="/contact"   className="font-oswald uppercase tracking-widest text-xs text-brand-muted hover:text-brand-gold transition-colors">Contact</Link>
           </nav>
 
@@ -94,7 +96,9 @@ export default function Navbar() {
               ))}
             </div>
           )}
+          <Link href="/services"  onClick={() => setOpen(false)} className="block py-3 font-oswald uppercase tracking-widest text-xs text-brand-muted hover:text-brand-gold transition-colors border-b border-brand-border">Services</Link>
           <Link href="/locations" onClick={() => setOpen(false)} className="block py-3 font-oswald uppercase tracking-widest text-xs text-brand-muted hover:text-brand-gold transition-colors border-b border-brand-border">Locations</Link>
+          <Link href="/about"     onClick={() => setOpen(false)} className="block py-3 font-oswald uppercase tracking-widest text-xs text-brand-muted hover:text-brand-gold transition-colors border-b border-brand-border">About</Link>
           <Link href="/contact"   onClick={() => setOpen(false)} className="block py-3 font-oswald uppercase tracking-widest text-xs text-brand-muted hover:text-brand-gold transition-colors border-b border-brand-border">Contact</Link>
           <div className="pt-4 pb-2 flex flex-col gap-3">
             <a href="tel:+18327669246" className="flex items-center gap-2 text-brand-muted text-sm font-lato">

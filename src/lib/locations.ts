@@ -2,24 +2,25 @@ export interface Location {
   city: string
   county: string
   distance: string
+  slug?: string
 }
 
 export const houstonAreaLocations: Location[] = [
-  { city: 'Houston',       county: 'Harris',     distance: 'Hub'        },
-  { city: 'Sugar Land',    county: 'Fort Bend',  distance: '~20 mi SW'  },
-  { city: 'Katy',          county: 'Harris',     distance: '~28 mi W'   },
-  { city: 'The Woodlands', county: 'Montgomery', distance: '~28 mi N'   },
-  { city: 'Pearland',      county: 'Brazoria',   distance: '~17 mi S'   },
-  { city: 'Pasadena',      county: 'Harris',     distance: '~12 mi SE'  },
+  { city: 'Houston',       county: 'Harris',     distance: 'Hub',       slug: 'houston'       },
+  { city: 'Sugar Land',    county: 'Fort Bend',  distance: '~20 mi SW', slug: 'sugar-land'    },
+  { city: 'Katy',          county: 'Harris',     distance: '~28 mi W',  slug: 'katy'          },
+  { city: 'The Woodlands', county: 'Montgomery', distance: '~28 mi N',  slug: 'the-woodlands' },
+  { city: 'Pearland',      county: 'Brazoria',   distance: '~17 mi S',  slug: 'pearland'      },
+  { city: 'Pasadena',      county: 'Harris',     distance: '~12 mi SE', slug: 'pasadena'      },
   { city: 'Friendswood',   county: 'Galveston',  distance: '~22 mi S'   },
-  { city: 'League City',   county: 'Galveston',  distance: '~25 mi SE'  },
+  { city: 'League City',   county: 'Galveston',  distance: '~25 mi SE', slug: 'league-city'   },
   { city: 'Baytown',       county: 'Harris',     distance: '~25 mi E'   },
   { city: 'Conroe',        county: 'Montgomery', distance: '~38 mi N'   },
-  { city: 'Missouri City', county: 'Fort Bend',  distance: '~18 mi SW'  },
+  { city: 'Missouri City', county: 'Fort Bend',  distance: '~18 mi SW', slug: 'missouri-city' },
   { city: 'Stafford',      county: 'Fort Bend',  distance: '~16 mi SW'  },
   { city: 'Humble',        county: 'Harris',     distance: '~18 mi NE'  },
   { city: 'Spring',        county: 'Harris',     distance: '~22 mi N'   },
-  { city: 'Cypress',       county: 'Harris',     distance: '~23 mi NW'  },
+  { city: 'Cypress',       county: 'Harris',     distance: '~23 mi NW', slug: 'cypress'       },
   { city: 'Richmond',      county: 'Fort Bend',  distance: '~33 mi SW'  },
   { city: 'Rosenberg',     county: 'Fort Bend',  distance: '~35 mi SW'  },
   { city: 'Webster',       county: 'Harris',     distance: '~22 mi SE'  },

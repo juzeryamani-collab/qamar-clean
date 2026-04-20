@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ArrowRight, Phone, MessageCircle, CheckCircle, Shield, Clock, Wrench, Award } from 'lucide-react'
 import LocationsGrid from '@/components/sections/LocationsGrid'
 import CtaBanner from '@/components/sections/CtaBanner'
+import FaqAccordion from '@/components/sections/FaqAccordion'
 
 export const metadata: Metadata = {
   title: 'Qamar Construction | Medical & Dental Facility Builder — Houston, TX',
@@ -318,6 +319,90 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── HOMEPAGE FAQ ── */}
+      {(() => {
+        const homeFaqs = [
+          {
+            question: 'What types of medical facilities does Qamar Construction build?',
+            answer: 'Qamar Construction specializes exclusively in healthcare facility construction — medical clinics (primary care, specialty, multi-physician), dental offices (new practices, multi-operatory, specialty dental), and urgent care centers (freestanding, retail conversions, franchise). We do not build residential, retail, or general commercial projects. Healthcare construction is all we do.',
+          },
+          {
+            question: 'What areas does Qamar Construction serve in Texas?',
+            answer: 'Qamar Construction serves the entire Greater Houston metropolitan area within a 40-mile radius of downtown Houston. This includes Harris County (Houston, Pasadena, Baytown, Cypress), Fort Bend County (Sugar Land, Missouri City, Stafford, Rosenberg), Brazoria County (Pearland, Friendswood, Alvin), Galveston County (League City, Webster, Texas City), and Montgomery County (The Woodlands, Conroe, Spring). We are licensed to operate across Texas.',
+          },
+          {
+            question: 'What is turnkey design-build for medical facilities?',
+            answer: "Turnkey design-build means Qamar Construction handles every phase of your project under one contract: space planning and architectural design, permitting and regulatory submissions, full construction including MEP systems and specialty medical infrastructure, equipment coordination, inspections, and final certificate of occupancy. You deal with one team, one contract, and one point of contact from the first consultation to opening day — no coordination between separate architects, engineers, and contractors.",
+          },
+          {
+            question: 'How long has Qamar Construction been building healthcare facilities?',
+            answer: 'Qamar Construction has over 20 years of commercial construction experience, with the last decade focused exclusively on healthcare facility construction in the Greater Houston area. We have delivered more than 40 medical, dental, and urgent care facilities across Harris, Fort Bend, Brazoria, Galveston, and Montgomery counties.',
+          },
+          {
+            question: 'Is Qamar Construction licensed and insured in Texas?',
+            answer: 'Yes. Qamar Construction holds all required Texas contractor licenses, carries full general liability insurance, and maintains workers compensation coverage on every project. We are compliant with Texas Department of Licensing and Regulation (TDLR) requirements for commercial construction. Documentation is available upon request.',
+          },
+          {
+            question: 'How do I get started with Qamar Construction?',
+            answer: "The easiest way to start is to call us directly at (832) 766-9246 or fill out the contact form on our website. We'll schedule a free consultation — either at your site or virtually — to discuss your project scope, timeline, and budget. If you have a potential lease space, we can evaluate it before you sign. There's no cost and no obligation for the initial consultation.",
+          },
+        ]
+
+        const faqSchema = {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: homeFaqs.map((f) => ({
+            '@type': 'Question',
+            name: f.question,
+            acceptedAnswer: { '@type': 'Answer', text: f.answer },
+          })),
+        }
+
+        return (
+          <>
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
+            <section
+              className="py-24 border-y border-brand-border"
+              style={{
+                background: 'linear-gradient(180deg, #0e0e12 0%, #131317 100%)',
+                backgroundImage:
+                  'repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(255,255,255,0.008) 2px, rgba(255,255,255,0.008) 3px), linear-gradient(180deg, #0e0e12 0%, #131317 100%)',
+              }}
+            >
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+                  <div className="lg:col-span-1">
+                    <span className="section-tag">FAQ</span>
+                    <h2 className="section-heading mb-4">Common Questions</h2>
+                    <p className="text-brand-muted text-sm font-lato leading-relaxed">
+                      Have a question not answered here? Call us at{' '}
+                      <a href="tel:+18327669246" className="text-brand-gold hover:text-brand-gold-hover transition-colors">
+                        (832) 766-9246
+                      </a>{' '}
+                      or{' '}
+                      <a href="https://wa.me/18327669246" target="_blank" rel="noopener noreferrer" className="text-brand-gold hover:text-brand-gold-hover transition-colors">
+                        WhatsApp us
+                      </a>.
+                    </p>
+                    <div className="mt-6">
+                      <Link href="/contact" className="btn-primary text-xs py-3 px-6">
+                        Get a Free Quote <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="lg:col-span-2">
+                    <FaqAccordion faqs={homeFaqs} />
+                  </div>
+                </div>
+              </div>
+            </section>
+          </>
+        )
+      })()}
 
       <LocationsGrid />
       <CtaBanner />

@@ -18,12 +18,20 @@ export default function LocationsGrid() {
           <span className="font-oswald text-brand-gold uppercase tracking-widest text-sm">Houston, TX — Primary Service Hub</span>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-          {houstonAreaLocations.filter(l => l.city !== 'Houston').map((loc) => (
-            <div key={loc.city} className="bg-brand-bg border border-brand-border p-3 text-center hover:border-brand-gold transition-colors duration-200 group">
-              <p className="font-oswald text-sm text-brand-text group-hover:text-brand-gold transition-colors">{loc.city}</p>
-              <p className="text-brand-muted text-xs font-lato mt-0.5">{loc.distance}</p>
-            </div>
-          ))}
+          {houstonAreaLocations.filter(l => l.city !== 'Houston').map((loc) =>
+            loc.slug ? (
+              <Link key={loc.city} href={`/locations/${loc.slug}`}
+                className="bg-brand-bg border border-brand-border p-3 text-center hover:border-brand-gold transition-colors duration-200 group">
+                <p className="font-oswald text-sm text-brand-text group-hover:text-brand-gold transition-colors">{loc.city}</p>
+                <p className="text-brand-muted text-xs font-lato mt-0.5">{loc.distance}</p>
+              </Link>
+            ) : (
+              <div key={loc.city} className="bg-brand-bg border border-brand-border p-3 text-center hover:border-brand-gold transition-colors duration-200 group">
+                <p className="font-oswald text-sm text-brand-text group-hover:text-brand-gold transition-colors">{loc.city}</p>
+                <p className="text-brand-muted text-xs font-lato mt-0.5">{loc.distance}</p>
+              </div>
+            )
+          )}
         </div>
         <p className="text-center mt-8">
           <Link href="/locations" className="text-brand-gold hover:text-brand-gold-hover text-sm font-oswald uppercase tracking-widest transition-colors underline underline-offset-4">

@@ -60,10 +60,12 @@ export default function Footer() {
             <h3 className="font-oswald uppercase tracking-widest text-xs text-brand-gold mb-5">Services &amp; Links</h3>
             <ul className="space-y-3">
               {[
+                { label: 'All Services',        href: '/services'        },
                 { label: 'Medical Clinics',     href: '/medical-clinics' },
                 { label: 'Dental Clinics',      href: '/dental-clinics'  },
                 { label: 'Urgent Care',         href: '/urgent-care'     },
                 { label: 'Service Locations',   href: '/locations'       },
+                { label: 'About Us',            href: '/about'           },
                 { label: 'Request a Quote',     href: '/contact'         },
               ].map((l) => (
                 <li key={l.href}>

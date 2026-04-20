@@ -11,6 +11,7 @@ export default function MedicalClinicsPage() {
   return (
     <ServicePageTemplate
       tag="Medical Clinics"
+      slug="/medical-clinics"
       heroImage="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1920&q=80"
       heroTitle="Medical Clinic Construction &amp; |Renovation| in Houston"
       heroSub="From primary care to specialty practices — Qamar handles full-scope design, permitting, and construction for medical clinic facilities of any size across the Greater Houston area."
@@ -56,6 +57,22 @@ export default function MedicalClinicsPage() {
         {
           question: 'Can Qamar Construction help first-time medical practice owners?',
           answer: "Absolutely. We work with first-time practice owners regularly and guide you through every stage — from evaluating a lease space before you sign, to coordinating with your equipment vendors on exact utility rough-in specs. Many clients tell us Qamar was the most valuable partner in their entire practice launch.",
+        },
+        {
+          question: 'What is the difference between a tenant improvement build-out and ground-up medical clinic construction?',
+          answer: "A tenant improvement (TI) build-out transforms an existing commercial shell space — often a former retail or office unit in a strip center or medical office building — into a functional clinic. It's typically faster and less expensive than ground-up construction because the building structure, roof, and utilities already exist. Ground-up construction means building an entirely new structure on a vacant lot. Qamar Construction handles both, and we'll help you evaluate which approach fits your timeline and budget.",
+        },
+        {
+          question: 'What medical-grade MEP systems are required in a Houston clinic?',
+          answer: 'Medical clinics require specialized mechanical, electrical, and plumbing (MEP) systems beyond standard commercial construction. This includes medical gas piping (oxygen, vacuum, compressed air) for procedure rooms, dedicated high-amperage circuits for imaging and diagnostic equipment, HVAC systems designed for infection control and air exchange rates, and exam room plumbing for hand-washing compliance. Qamar Construction engineers all MEP systems in-house, coordinated with your specific equipment vendors.',
+        },
+        {
+          question: 'Does Qamar Construction work with medical office building (MOB) landlords and property managers?',
+          answer: "Yes. Many of our clients lease space in established medical office buildings in the Houston area. We work directly with MOB landlords, property managers, and their architects to navigate tenant improvement allowances, landlord work letter requirements, and building standard specifications. We make the landlord relationship seamless so you can focus on your practice.",
+        },
+        {
+          question: 'How does Qamar Construction ensure HIPAA-compliant design in a medical clinic?',
+          answer: "HIPAA compliance in clinic design involves several physical elements: private check-in and check-out windows with acoustic barriers, soundproofed exam rooms so patient conversations aren't audible in hallways or waiting areas, secure medical records storage, and visual privacy measures that prevent patients from viewing other patients' information. Qamar builds these elements into every clinic design from the start — not as afterthoughts. Our layouts are reviewed for HIPAA-readiness before a single wall is framed.",
         },
       ]}
       testimonialsHeading="What Houston Physicians Are Saying"

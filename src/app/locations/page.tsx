@@ -49,18 +49,33 @@ export default function LocationsPage() {
             <p className="text-brand-muted mt-4 font-lato max-w-xl">Don&apos;t see your city? Contact us — if you&apos;re within 40 miles of Houston, we likely serve your area.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {houstonAreaLocations.map((loc) => (
-              <div key={loc.city} className="bg-brand-surface border border-brand-border p-5 hover:border-brand-gold transition-colors group">
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 text-brand-gold mt-0.5 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-oswald text-base font-semibold text-brand-text group-hover:text-brand-gold transition-colors">{loc.city}</h3>
-                    <p className="text-brand-muted text-xs font-lato mt-0.5">{loc.county} County</p>
-                    <p className="text-brand-muted text-xs font-lato">{loc.distance}</p>
+            {houstonAreaLocations.map((loc) =>
+              loc.slug ? (
+                <Link key={loc.city} href={`/locations/${loc.slug}`}
+                  className="bg-brand-surface border border-brand-border p-5 hover:border-brand-gold transition-colors group">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-4 h-4 text-brand-gold mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-oswald text-base font-semibold text-brand-text group-hover:text-brand-gold transition-colors">{loc.city}</h3>
+                      <p className="text-brand-muted text-xs font-lato mt-0.5">{loc.county} County</p>
+                      <p className="text-brand-muted text-xs font-lato">{loc.distance}</p>
+                      <p className="text-brand-gold text-[10px] font-oswald uppercase tracking-widest mt-1">View Details →</p>
+                    </div>
+                  </div>
+                </Link>
+              ) : (
+                <div key={loc.city} className="bg-brand-surface border border-brand-border p-5 hover:border-brand-gold transition-colors group">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-4 h-4 text-brand-gold mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-oswald text-base font-semibold text-brand-text group-hover:text-brand-gold transition-colors">{loc.city}</h3>
+                      <p className="text-brand-muted text-xs font-lato mt-0.5">{loc.county} County</p>
+                      <p className="text-brand-muted text-xs font-lato">{loc.distance}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
         </div>
       </section>

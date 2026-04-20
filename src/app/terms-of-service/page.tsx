@@ -25,7 +25,7 @@ export default function TermsOfServicePage() {
 
             <div>
               <h2 className="font-oswald text-xl text-brand-text mb-3">1. Acceptance of Terms</h2>
-              <p>By accessing and using the Qamar Construction website (qamar.53printers.com and qamarconstruction.com), you agree to be bound by these Terms of Service. If you do not agree, please do not use this website.</p>
+              <p>By accessing and using the Qamar Construction website (medicaldentaldesignbuild.com and qamarconstruction.com), you agree to be bound by these Terms of Service. If you do not agree, please do not use this website.</p>
             </div>
 
             <div>
